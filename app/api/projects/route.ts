@@ -1,11 +1,11 @@
 import {NextRequest, NextResponse} from "next/server"
 import {z} from 'zod'
 import prisma from "@/prisma/client"
-import { createProjectSchema } from "@/app/validationSchemas"
+import { projectSchema } from "@/app/validationSchemas"
 
 export async function POST(request: NextRequest){
     const body = await request.json()
-    const validation = createProjectSchema.safeParse(body);
+    const validation = projectSchema.safeParse(body);
     
 
     if (!validation.success)

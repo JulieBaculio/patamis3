@@ -1,15 +1,3 @@
-import { Skeleton } from '@/app/components'
-import { Box } from '@radix-ui/themes'
+import ProjectFormSkeleton from "../_components/ProjectFormSkeleton"
 
-const LoadingNewProjectPage = () => {
-  return (
-    <div>
-      <Box className='m-w-xl'>
-        <Skeleton/>
-        <Skeleton height="20 rem"/>
-      </Box>
-    </div>
-  )
-}
-
-export default LoadingNewProjectPage
+export default ProjectFormSkeleton
