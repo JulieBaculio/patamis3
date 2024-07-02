@@ -9,7 +9,7 @@ const ProjectsPage = async () => {
   const projects = await prisma.project.findMany();
   
   return (
-    <div className='px-5'>
+    <div >
       <ProjectActions/>
 
       <Table.Root variant='surface'>

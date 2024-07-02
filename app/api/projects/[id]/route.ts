@@ -27,3 +27,19 @@ export async function PATCH(request: NextRequest, {params}: {params: {id: string
 
     return NextResponse.json(updatedProject)
 }
+
+export async function DELETE(request: NextRequest, {params}: {params: {id: string}}){
+
+   const project = await prisma.project.findUnique({
+        where: {id: parseInt(params.id)}
+    })
+
+    if(!project)
+        return NextResponse.json({error:'Invalid project'}, {status:404})
+
+    prisma.project.delete({
+        where: {id: project.id}
+    })
+
+    return NextResponse.json({})
+}

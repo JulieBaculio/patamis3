@@ -12,7 +12,7 @@ const ProjectDetails = ({project}: {project: Project}) => {
         <Text>{project.createdAt.toDateString()}</Text>
       </Flex>
       
-      <Card className='prose' mt='4'>
+      <Card className='prose max-w-full' mt='4'>
       <ReactMarkdown>{project.description}</ReactMarkdown>
       </Card>
     </>

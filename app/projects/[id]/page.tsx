@@ -1,8 +1,9 @@
 import prisma from '@/prisma/client'
-import { Box, Grid } from '@radix-ui/themes'
+import { Box, Flex, Grid } from '@radix-ui/themes'
 import { notFound } from 'next/navigation'
 import EditProjectButton from './EditProjectButton'
 import ProjectDetails from './ProjectDetails'
+import DeleteProjectButton from './DeleteProjectButton'
 
 interface Props {
     params: {id: string}
@@ -20,13 +21,16 @@ if (!project)
     notFound();
 
 return (
-    <Grid columns={{initial: "1", md: "2"}} gap="5" className='px-5'>
-    <Box>
+    <Grid columns={{initial: "1", sm: "5"}} gap="5">
+    <Box className='md:col-span-4'>
       <ProjectDetails project={project} />
     </Box>
 
     <Box>
-      <EditProjectButton projectId={project.id}/>
+      <Flex direction="column" gap="4" >
+      <EditProjectButton projectId={project.id} align-self="flex-end"/>
+      <DeleteProjectButton projectId={project.id} align-self="flex-end"/>
+      </Flex>
     </Box>
     </Grid>
   )
