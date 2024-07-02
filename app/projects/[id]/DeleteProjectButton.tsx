@@ -1,8 +1,12 @@
 'use client'
 import { EraserIcon } from '@radix-ui/react-icons'
 import { AlertDialog, Button, Flex } from '@radix-ui/themes'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 const DeleteProjectButton = ({projectId}: {projectId: number}) => {
+
+    const router = useRouter();
   return (
     <div>
 
@@ -22,7 +26,11 @@ const DeleteProjectButton = ({projectId}: {projectId: number}) => {
                     <Button variant="soft" color="gray">Cancel</Button>
                 </AlertDialog.Cancel>
                 <AlertDialog.Action>
-                    <Button color="red">Delete Project</Button>
+                    <Button color="red" onClick={async () => {
+                        await axios.delete('/api/projects/'+projectId)
+                        router.push('/projects')
+                        router.refresh();
+                    }}>Delete Project</Button>
                 </AlertDialog.Action>
             </Flex>
             </AlertDialog.Content>

@@ -37,7 +37,7 @@ export async function DELETE(request: NextRequest, {params}: {params: {id: strin
     if(!project)
         return NextResponse.json({error:'Invalid project'}, {status:404})
 
-    prisma.project.delete({
+    await prisma.project.delete({
         where: {id: project.id}
     })
 
