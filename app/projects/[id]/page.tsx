@@ -28,8 +28,8 @@ return (
 
     <Box>
       <Flex direction="column" gap="4" >
-      <EditProjectButton projectId={project.id} align-self="flex-end"/>
-      <DeleteProjectButton projectId={project.id} align-self="flex-end"/>
+      <EditProjectButton projectId={project.id} />
+      <DeleteProjectButton projectId={project.id} />
       </Flex>
     </Box>
     </Grid>

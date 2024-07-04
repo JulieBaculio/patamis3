@@ -5,12 +5,12 @@ import React from 'react'
 
 const EditProjectButton = ({projectId}: {projectId: number}) => {
   return (
-    <div>
+    <>
       <Button>
       <Pencil2Icon/>
         <Link href={`/projects/${projectId}/edit`}>Edit Project</Link>
     </Button>
-    </div>
+    </>
   )
 }
 
